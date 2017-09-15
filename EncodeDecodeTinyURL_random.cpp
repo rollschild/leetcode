@@ -30,7 +30,7 @@ class Solution {
 
     // Decodes a shortened URL to its original URL.
     string decode(string shortUrl) {
-        shortUrl.replace(0, len - 1, "");
+        shortUrl.replace(0, len, ""); // you should NOT use len -1
         if(URLmap.find(shortUrl) != URLmap.end()) {
             return URLmap[shortUrl];
         }
