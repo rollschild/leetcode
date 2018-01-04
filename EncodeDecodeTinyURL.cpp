@@ -16,7 +16,7 @@ class Solution {
 
     // Decodes a shortened URL to its original URL.
     string decode(string shortUrl) {
-        shortUrl.replace(0, length - 1, "");
+        shortUrl.replace(0, length, "");
         if(URLmap.find(atoi(shortUrl.c_str())) != URLmap.end()) {
             return URLmap[atoi(shortUrl.c_str())];
         }
