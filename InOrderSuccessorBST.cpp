@@ -25,14 +25,22 @@ public:
     */
     TreeNode* findParent(TreeNode* root, TreeNode* child) {
         if(root == nullptr) return nullptr;
-        if(root->left == nullptr) return TreeNode* rightparent = findParent(root->right, child);
-        if(root->right == nullptr) return TreeNode* leftparent = findParent(root->left, child);
         if(root->left == child || root->right == child) return root;
+        TreeNode* leftparent = new TreeNode(0);
+        TreeNode* rightparent = new TreeNode(0);
+        if(root->right != nullptr) {
+            rightparent->val = root->right->val;
+            // return findParent(rightparent, child);
+        }
+        if(root->left != nullptr) {
+            leftparent->val = root->left->val;
+            // return findParent(leftparent, child);
+        }
         if(child->val < root->val) {
-            return TreeNode* leftparent = findParent(root->left, child);
+            return findParent(leftparent, child);
         }
         else {
-            return TreeNode* rightparent = findParent(root->right, child);
+            return findParent(rightparent, child);
         }
         
     }
@@ -56,6 +64,5 @@ public:
                 else return nullptr;
             }
         }
-        
     }
 };
